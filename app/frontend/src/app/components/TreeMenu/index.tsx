@@ -77,6 +77,7 @@ const TreeMenu = () => {
 
   return (
     <div className="bg-white py-8 w-full md:w-[48%]">
+      <div className='mb-2'>Menu</div>
       <div className="flex flex-col mb-6">
         <Dropdown<TreeViewData>
           items={menuItems}

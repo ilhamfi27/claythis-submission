@@ -1,6 +1,7 @@
 'use client';
 import { useSidebarStore } from '@/store/reducers/sidebar';
 import { FaFolder } from 'react-icons/fa';
+import { HiOutlineViewGrid } from 'react-icons/hi';
 
 const Header = () => {
   const { isOpened, toggleSidebar } = useSidebarStore();
@@ -20,6 +21,12 @@ const Header = () => {
         <FaFolder className="text-gray-400 w-6 h-6" />
         <div className="text-gray-400 ml-2">/ Menus</div>
       </header>
+      <div className="flex items-center gap-4">
+        <div className="flex items-center justify-center w-16 h-16 bg-[#253BFF] rounded-full">
+          <HiOutlineViewGrid className="w-10 h-10 stroke-white" />
+        </div>
+        <h2 className="font-bold text-3xl">Menus</h2>
+      </div>
     </>
   );
 };
