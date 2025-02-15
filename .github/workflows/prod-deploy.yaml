@@ -31,11 +31,3 @@ jobs:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
           railway up --service $RAILWAY_SERVICE_ID -d
-
-      - name: Deploy Frontend to Railway
-        working-directory: app/frontend
-        env:
-          RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_FRONTEND_SERVICE_ID }}
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-        run: |
-          railway up --service $RAILWAY_SERVICE_ID -d
