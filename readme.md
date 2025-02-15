@@ -22,11 +22,16 @@ The backend follows **Domain-Driven Design (DDD)** with the following structure:
 app/backend
 │── src
 │   ├── <module-name>
-│   │   ├── application    # Business logic (use-cases, DTOs)
-│   │   ├── domain         # Entities, repositories, and domain models
-│   │   ├── infrastructure # Database, API integrations, third-party services
-│   │   ├── controllers    # API entry points (optional)
+│       ├── application
+│           ├── rest
+│               └── controllers.ts  # handles REST request & response
+│           ├── dto                 # store all DTO used by application REST layer
+│       ├── domain                  # store all domain or logics
+│           └── module.service.ts
+│       ├── infrastructure          # store all logic to connect to external services
 ```
+
+With DDD architecture, here we separate logic, and REST layer.
 
 ### 🎨 Frontend (NextJS)
 
@@ -48,7 +53,7 @@ app/frontend
 
 Before developing this project, ensure you have the following installed:
 
-1. **Node.js 18+**
+1. **Node.js 20+**
 2. **Docker**
 
 ---
@@ -85,9 +90,9 @@ Once all services are running:
 
 ## 🌍 Domain and Credentials
 
-The application is hosted at: [Claythis Submission](https://example.com)
+The application is hosted at: [Claythis Submission](https://claythis-submission.vercel.app)
 
-To access, use the following credentials:
+To access the dashboard from login page, use the following credentials:
 
 ```
 Username: admin
