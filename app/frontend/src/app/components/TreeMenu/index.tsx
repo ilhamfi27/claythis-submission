@@ -84,6 +84,7 @@ const TreeMenu = () => {
           onSelect={(d) => onDropdownSelect(d)}
           selected={selectedMenu?.name}
           renderItem={(item) => item.name}
+          placeholder='Select Available Menu (leave empty to create new)'
         />
       </div>
 

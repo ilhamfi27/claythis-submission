@@ -14,6 +14,7 @@ interface MenuState {
   detail: MenusFormValues;
   loading?: boolean;
   error?: string | null;
+  selectedMenu: string | null;
 }
 
 const initialState: MenuState = {
@@ -28,6 +29,7 @@ const initialState: MenuState = {
   },
   loading: false,
   error: null,
+  selectedMenu: null,
 };
 
 const asyncRequests = {
@@ -95,6 +97,9 @@ const pageSlice = createSlice({
   reducers: {
     setDetail(state, action: PayloadAction<MenusFormValues>) {
       state.detail = action.payload;
+    },
+    setSelectedMenu(state, action: PayloadAction<string | null>) {
+      state.selectedMenu = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -166,7 +171,7 @@ const pageSlice = createSlice({
   },
 });
 
-const { setDetail } = pageSlice.actions;
+const { setDetail, setSelectedMenu } = pageSlice.actions;
 
 export const useMenuStore = () => {
   const dispatch = useAppDispatch();
@@ -180,6 +185,7 @@ export const useMenuStore = () => {
       dispatch(asyncRequests.createMenu(data)),
     putMenu: (data: MenusFormValues) => dispatch(asyncRequests.putMenu(data)),
     deleteMenu: (id: string) => dispatch(asyncRequests.deleteMenu(id)),
+    setSelectedMenu: (menu: string | null) => dispatch(setSelectedMenu(menu)),
   };
 };
 

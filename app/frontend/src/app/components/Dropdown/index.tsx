@@ -6,6 +6,7 @@ type DropdownProps<D = any> = {
   selected?: string | null;
   onSelect?: (item: D | null) => void;
   renderItem?: (item: D) => any;
+  placeholder?: string;
 };
 
 const Dropdown = <D,>({
@@ -13,11 +14,12 @@ const Dropdown = <D,>({
   selected,
   onSelect,
   renderItem,
+  placeholder = 'Select Options',
 }: DropdownProps<D>) => {
   return (
     <DropdownMenu.Root>
       <DropdownMenu.Trigger className="bg-gray-200 px-4 py-2 rounded-md shadow-md text-sm font-medium hover:bg-gray-300 focus:outline-none flex items-center space-x-2">
-        <span>{selected ?? 'Select Options'}</span> <GoChevronDown />
+        <span>{selected ?? placeholder}</span> <GoChevronDown />
       </DropdownMenu.Trigger>
 
       <DropdownMenu.Portal>
@@ -29,7 +31,7 @@ const Dropdown = <D,>({
             className="px-5 py-3 text-base text-gray-800 hover:bg-gray-200 focus:outline-none"
             onSelect={() => onSelect && onSelect(null)}
           >
-            Select Options
+            {placeholder}
           </DropdownMenu.Item>
           {items.map((item, index) => (
             <DropdownMenu.Item
@@ -40,12 +42,6 @@ const Dropdown = <D,>({
               {renderItem ? renderItem(item) : item}
             </DropdownMenu.Item>
           ))}
-          <DropdownMenu.Item
-            className="px-5 py-3 text-base text-gray-800 hover:bg-gray-200 focus:outline-none"
-            onSelect={() => onSelect && onSelect(null)}
-          >
-            Create new menu
-          </DropdownMenu.Item>
         </DropdownMenu.Content>
       </DropdownMenu.Portal>
     </DropdownMenu.Root>
