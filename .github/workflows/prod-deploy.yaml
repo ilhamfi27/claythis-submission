@@ -1,0 +1,41 @@
+name: Deploy to Railway
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install Railway CLI
+        run: npm i -g @railway/cli
+
+      - name: Deploy Backend to Railway
+        working-directory: app/backend
+        env:
+          RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_BACKEND_SERVICE_ID }}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+          railway up --service $RAILWAY_SERVICE_ID -d
+
+      - name: Deploy Frontend to Railway
+        working-directory: app/frontend
+        env:
+          RAILWAY_SERVICE_ID: ${{ secrets.RAILWAY_FRONTEND_SERVICE_ID }}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+        run: |
+          railway up --service $RAILWAY_SERVICE_ID -d
