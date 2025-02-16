@@ -22,13 +22,13 @@ The backend follows **Domain-Driven Design (DDD)** with the following structure:
 app/backend
 │── src
 │   ├── <module-name>
-│       ├── application
-│           ├── rest
-│               └── controllers.ts  # handles REST request & response
-│           ├── dto                 # store all DTO used by application REST layer
-│       ├── domain                  # store all domain or logics
-│           └── module.service.ts
-│       ├── infrastructure          # store all logic to connect to external services
+│   │   ├── application
+│   │   │   ├── rest
+│   │   │   │   └── controllers.ts  # handles REST request & response
+│   │   │   ├── dto                 # store all DTO used by application REST layer
+│   │   ├── domain                  # store all domain or logics
+│   │   │   └── module.service.ts
+│   │   ├── infrastructure          # store all logic to connect to external services
 ```
 
 With DDD architecture, here we separate logic, and REST layer.
