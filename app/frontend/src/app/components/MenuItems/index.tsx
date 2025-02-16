@@ -20,7 +20,7 @@ const MenuItems: FC<MenuItemsProps> = ({ menuItems }) => {
                   ? 'text-gray-400'
                   : 'hover:bg-[#9FF443] hover:text-black'
               } ${depth > 0 && item.children ? 'justify-between' : ''} ${
-                selectedMenu === item.title ? 'bg-[#9FF443] text-black' : ''
+                selectedMenu === item.title ? 'bg-[#9FF443] !text-black' : ''
               }`}
               onClick={() => setSelectedMenu(item.title)}
             >
