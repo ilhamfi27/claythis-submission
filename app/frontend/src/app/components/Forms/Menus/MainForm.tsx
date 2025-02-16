@@ -80,7 +80,7 @@ const MenusForm: FC = () => {
       <div className="flex">
         <Button
           type="submit"
-          className="flex-1 py-3 bg-[#253BFF] text-white rounded-lg hover:bg-blue-600"
+          className="flex-1 py-3 bg-[#253BFF] text-white hover:bg-blue-600"
         >
           {detail.id ? 'Save' : 'Create'}
         </Button>

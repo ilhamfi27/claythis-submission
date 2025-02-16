@@ -91,13 +91,13 @@ const TreeMenu = () => {
       <div className="flex my-4 space-x-4">
         <Button
           onClick={() => tree?.openAll()}
-          className="flex-1 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+          className="flex-1 px-4 py-2 bg-gray-800 text-white hover:bg-gray-700"
         >
           Expand All
         </Button>
         <Button
           onClick={() => tree?.closeAll()}
-          className="flex-1 px-4 py-2 border border-gray-400 text-gray-600 rounded-lg hover:bg-gray-100"
+          className="flex-1 px-4 py-2 border border-gray-400 text-gray-600 hover:bg-gray-100"
         >
           Collapse All
         </Button>
