@@ -60,13 +60,20 @@ Before developing this project, ensure you have the following installed:
 
 ## 🚀 Start Development Environment
 
-### 1️⃣ Install dependencies for both backend and frontend:
+### 1️⃣ Run docker services consist of PostgreSQL database service:
+
+```sh
+cd misc/docker
+docker compose up -d
+```
+
+### 2️⃣ Install dependencies for both backend and frontend:
 
 ```sh
 yarn backend && yarn frontend
 ```
 
-### 2️⃣ Copy environment files from example templates:
+### 3️⃣ Copy environment files from example templates:
 
 ```sh
 cd app/backend && cp .env.example .env
@@ -75,7 +82,7 @@ cd app/frontend && cp .env.example .env.local
 cd ../../
 ```
 
-### 3️⃣ Start the development servers:
+### 4️⃣ Start the development servers:
 
 ```sh
 yarn start:all:dev
