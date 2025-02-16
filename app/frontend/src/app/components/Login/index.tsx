@@ -9,8 +9,8 @@ import Spinner from '../Spinner';
 const Login = () => {
   const router = useRouter();
   const { login, loading } = useAuthStore();
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('admin');
+  const [password, setPassword] = useState('password123!');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
