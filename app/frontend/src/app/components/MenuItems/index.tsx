@@ -7,7 +7,7 @@ type MenuItemsProps = {
 };
 
 const MenuItems: FC<MenuItemsProps> = ({ menuItems }) => {
-  const { setSelectedMenu } = useMenuStore();
+  const { setSelectedMenu, selectedMenu } = useMenuStore();
   const renderMenu = (items: SidebarMenus[], depth = 0) => {
     return (
       <ul className={depth === 0 ? 'space-y-4' : 'space-y-2 ml-4 mt-2'}>
@@ -15,11 +15,13 @@ const MenuItems: FC<MenuItemsProps> = ({ menuItems }) => {
           <li key={index}>
             <a
               href={item.href ?? 'javascript:void(0)'}
-              className={`flex items-center ${
+              className={`flex items-center p-2 rounded-lg ${
                 depth === 0
                   ? 'text-gray-400'
-                  : 'p-2 rounded-lg hover:bg-[#9FF443] hover:text-black'
-              } ${depth > 0 && item.children ? 'justify-between' : ''}`}
+                  : 'hover:bg-[#9FF443] hover:text-black'
+              } ${depth > 0 && item.children ? 'justify-between' : ''} ${
+                selectedMenu === item.title ? 'bg-[#9FF443] text-black' : ''
+              }`}
               onClick={() => setSelectedMenu(item.title)}
             >
               <span>{item.title}</span>

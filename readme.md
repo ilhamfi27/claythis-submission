@@ -98,3 +98,9 @@ To access the dashboard from login page, use the following credentials:
 Username: admin
 Password: password123!
 ```
+
+## <img src="https://www.svgrepo.com/show/374111/swagger.svg" alt="Swagger Logo" width="30"/> Swagger
+
+The backend also have a swagger, you can access it by opening `/api-docs` path or here [Swagger](https://claythis-backend-production.up.railway.app/api-docs)
+
+You need to login using the API in order to use the other API. The username and the password is the same.
